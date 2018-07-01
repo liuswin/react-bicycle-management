@@ -1,0 +1,36 @@
+import React from 'react';
+
+export default class Child extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 0
+    };
+  }
+  componentWillMount() {
+    console.log('will mount');
+  }
+  componentDidMount() {
+    console.log('did mount');
+  }
+  componentWillReceiveProps(newProps) {
+    console.log('will receive props' + newProps.name);
+  }
+  shouldComponentUpdate() {
+    console.log('should update');
+    return true;  // 默认为true 如果为false后面的生命周期方法不会调用
+  }
+  componentWillUpdate() {
+    console.log('will update');
+  }
+  componentDidUpdate() {
+    console.log('did update');
+  }
+  render() {
+    return (
+      <div>
+        <p>{this.props.name}</p>
+      </div>
+    )
+  }
+}
