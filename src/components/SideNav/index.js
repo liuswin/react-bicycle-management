@@ -1,9 +1,8 @@
 import React from 'react';
-import { Menu, Icon } from 'antd';
+import { Menu } from 'antd';
 import MenuConfig from '../../config/menuConfig';
 import './index.less';
 const SubMenu = Menu.SubMenu;
-const MenuItemGroup = Menu.ItemGroup;
 
 export default class SideNav extends React.Component {
   componentWillMount() {
