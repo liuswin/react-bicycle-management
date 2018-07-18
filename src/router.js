@@ -3,6 +3,7 @@ import { HashRouter, Route, Switch } from 'react-router-dom';
 import App from './App';
 import Login from './pages/Login';
 import Admin from './admin';
+import NoMatch from './pages/NoMatch';
 import Buttons from './pages/UI/buttons'
 
 export default class Router extends React.Component {
@@ -14,6 +15,7 @@ export default class Router extends React.Component {
           <Route path="/admin" render={() => 
             <Admin>
               <Route path="/admin/ui/buttons" component={Buttons}></Route>
+              <Route component={NoMatch}></Route>
             </Admin>
           }></Route>
           <Route path="/order/detail" component={Login}></Route>
