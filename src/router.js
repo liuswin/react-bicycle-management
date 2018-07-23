@@ -4,7 +4,7 @@ import App from './App';
 import Login from './pages/Login';
 import Admin from './admin';
 import NoMatch from './pages/NoMatch';
-import Buttons from './pages/UI/buttons'
+import Buttons from './pages/UI/Button'
 
 export default class Router extends React.Component {
   render() {
