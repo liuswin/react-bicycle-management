@@ -11,14 +11,16 @@ export default class Router extends React.Component {
     return (
       <HashRouter>
         <App>
-          <Route path="/login" component={Login}></Route>
-          <Route path="/admin" render={() => 
-            <Admin>
-              <Route path="/admin/ui/buttons" component={Buttons}></Route>
-              <Route component={NoMatch}></Route>
-            </Admin>
-          }></Route>
-          <Route path="/order/detail" component={Login}></Route>
+          <Switch>
+            <Route path="/login" component={Login}></Route>
+            <Route path="/admin" render={() => 
+              <Admin>
+                <Route path="/admin/ui/buttons" component={Buttons}></Route>
+                <Route component={NoMatch}></Route>
+              </Admin>
+            }></Route>
+            <Route path="/order/detail" component={Login}></Route>
+          </Switch>
         </App>
       </HashRouter>
     );
