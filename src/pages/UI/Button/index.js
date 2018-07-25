@@ -1,17 +1,23 @@
 import React from 'react';
-import { Card, Button } from 'antd';
+import { Card, Button, Radio } from 'antd';
 import './index.less';
 
 export default class Buttons extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      loading: true
+      loading: true,
+      size: 'default'
     }
   }
   handleCloseLoading = () => {
     this.setState({
       loading: false
+    })
+  }
+  handleChange = (e) => {
+    this.setState({
+      size: e.target.value
     })
   }
   render() {
@@ -38,6 +44,23 @@ export default class Buttons extends React.Component {
           <Button loading={this.state.loading}>点击加载</Button>
           <Button shape="circle" loading={this.state.loading}></Button>
           <Button type="primary" onClick={this.handleCloseLoading}>关闭</Button>
+        </Card>
+        <Card title="按钮组">
+          <Button.Group>
+            <Button type="primary" icon="left">返回</Button>
+            <Button type="primary" icon="right">前进</Button>
+          </Button.Group>
+        </Card>
+        <Card title="按钮尺寸">
+          <Radio.Group value={this.state.size} onChange={this.handleChange}>
+            <Radio value="small">小</Radio>
+            <Radio value="default">中</Radio>
+            <Radio value="large">大</Radio>
+          </Radio.Group>
+          <Button type="primary" size={this.state.size}>确定</Button>
+          <Button size={this.state.size}>测试</Button>
+          <Button type="dash" size={this.state.size}>点击加载</Button>
+          <Button type="danger" size={this.state.size}>取消</Button>
         </Card>
       </div>
     );
