@@ -149,7 +149,9 @@ module.exports = {
             include: paths.appSrc,
             loader: require.resolve('babel-loader'),
             options: {
-              
+              plugins: [
+                ['import', [{ libraryName: 'antd', style: true }]],  // import less
+              ],
               compact: true,
             },
           },
@@ -189,7 +191,8 @@ module.exports = {
                   modules: false,
                   modifyVars: {
                       "@primary-color": "#f9c700"
-                  }
+                  },
+                  javascriptEnabled: true
                 }
               }
             ],
