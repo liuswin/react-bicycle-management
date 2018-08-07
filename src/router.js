@@ -12,6 +12,7 @@ import Messages from './pages/UI/Message';
 import Tabs from './pages/UI/Tabs';
 import Gallerys from './pages/UI/Gallery';
 import Carousels from './pages/UI/Carousel';
+import LoginForm from './pages/Form/Login';
 
 export default class Router extends React.Component {
   render() {
@@ -31,6 +32,7 @@ export default class Router extends React.Component {
                   <Route path="/admin/ui/tabs" component={Tabs}></Route>
                   <Route path="/admin/ui/gallery" component={Gallerys}></Route>
                   <Route path="/admin/ui/carousel" component={Carousels}></Route>
+                  <Route path="/admin/form/login" component={LoginForm}></Route>
                   <Route component={NoMatch}></Route>
                 </Switch>
               </Admin>
