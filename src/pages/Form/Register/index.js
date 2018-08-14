@@ -8,6 +8,10 @@ const Option = Select.Option;
 const TextArea = Input.TextArea;
 
 class Registers extends React.Component {
+  handleSumbit = () => {
+    let userInfo = this.props.form.getFieldsValue();
+    console.log(JSON.stringify(userInfo));
+  }
   render() {
     const { getFieldDecorator } = this.props.form;
     const formItemLayout = {
@@ -17,8 +21,21 @@ class Registers extends React.Component {
       },
       wrapperCol: {
         xs: 24,
-        sm: 20
+        sm: 12
       }
+    }
+    const offsetLayout = {
+      wrapperCol: {
+        xs: 24,
+        sm: {
+          span: 12,
+          offset: 4
+        }
+      }
+    }
+    const rowConfig = {
+      minRows: 4,
+      maxRows: 6
     }
     return(
       <div>
@@ -43,7 +60,9 @@ class Registers extends React.Component {
                       message: '用户名必须为字母或者数字'
                     }
                   ]
-                })(<Input placeholder="请输入用户名" />)
+                })(
+                  <Input placeholder="请输入用户名" />
+                )
               }
             </FormItem>
             <FormItem label="密码" {...formItemLayout}>
@@ -56,7 +75,9 @@ class Registers extends React.Component {
                       message: '密码不能为空'
                     }
                   ]
-                })(<Input placeholder="请输入密码" />)
+                })(
+                  <Input type="password" placeholder="请输入密码" />
+                )
               }
             </FormItem>
             <FormItem label="性别" {...formItemLayout}>
@@ -137,7 +158,7 @@ class Registers extends React.Component {
                 getFieldDecorator('address', {
 
                 })(
-                  <TextArea autosize={{minRows: 4, maxRows: 6}} />
+                  <TextArea autosize={rowConfig} />
                 )
               }
             </FormItem>
@@ -158,6 +179,18 @@ class Registers extends React.Component {
                   <Upload />
                 )
               }
+            </FormItem>
+            <FormItem {...offsetLayout}>
+              {
+                getFieldDecorator('userImg', {
+
+                })(
+                  <Checkbox>我已经阅读过<a href="#">项目协议</a></Checkbox>
+                )
+              }
+            </FormItem>
+            <FormItem {...offsetLayout}>
+              <Button type="primary" onClick={this.handleSumbit}>注册</Button>
             </FormItem>
           </Form>
         </Card>
