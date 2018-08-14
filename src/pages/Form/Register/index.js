@@ -1,8 +1,11 @@
 import React from 'react';
 import { Card, Form, Button, Input, Checkbox, Radio, Select, Switch, DatePicker, TimePicker, Upload, Icon, message, InputNumber } from 'antd';
+import moment from 'moment';
 
 const FormItem = Form.Item;
 const RadioGroup = Radio.Group;
+const Option = Select.Option;
+const TextArea = Input.TextArea;
 
 class Registers extends React.Component {
   render() {
@@ -77,8 +80,84 @@ class Registers extends React.Component {
                 )
               }
             </FormItem>
-            <FormItem>
-              
+            <FormItem label="当前状态" {...formItemLayout}>
+              {
+                getFieldDecorator('state', {
+                  initialValue: '2'
+                })(
+                  <Select>
+                    <Option value="1">咸鱼一条</Option>
+                    <Option value="2">风华浪子</Option>
+                    <Option value="3">北大才子一枚</Option>
+                    <Option value="4">百度FE</Option>
+                    <Option value="5">创业者</Option>
+                  </Select>
+                )
+              }
+            </FormItem>
+            <FormItem label="爱好" {...formItemLayout}>
+              {
+                getFieldDecorator('interest', {
+                  initialValue: ['2', '5']
+                })(
+                  <Select mode="multiple">
+                    <Option value="1">游泳</Option>
+                    <Option value="2">打篮球</Option>
+                    <Option value="3">踢足球</Option>
+                    <Option value="4">跑步</Option>
+                    <Option value="5">爬山</Option>
+                    <Option value="6">骑行</Option>
+                    <Option value="7">桌球</Option>
+                    <Option value="8">麦霸</Option>
+                  </Select>
+                )
+              }
+            </FormItem>
+            <FormItem label="是否已婚" {...formItemLayout}>
+              {
+                getFieldDecorator('isMarried', {
+                  valuePropName: 'checked',
+                  initialValue: true
+                })(
+                  <Switch />
+                )
+              }
+            </FormItem>
+            <FormItem label="生日" {...formItemLayout}>
+              {
+                getFieldDecorator('birthday', {
+                  initialValue: moment('2018-08-08')
+                })(
+                  <DatePicker showTime format='YYYY-MM-DD HH:mm:ss' />
+                )
+              }
+            </FormItem>
+            <FormItem label="联系地址" {...formItemLayout}>
+              {
+                getFieldDecorator('address', {
+
+                })(
+                  <TextArea autosize={{minRows: 4, maxRows: 6}} />
+                )
+              }
+            </FormItem>
+            <FormItem label="早起时间" {...formItemLayout}>
+              {
+                getFieldDecorator('time', {
+                  
+                })(
+                  <TimePicker />
+                )
+              }
+            </FormItem>
+            <FormItem label="头像" {...formItemLayout}>
+              {
+                getFieldDecorator('userImg', {
+
+                })(
+                  <Upload />
+                )
+              }
             </FormItem>
           </Form>
         </Card>
