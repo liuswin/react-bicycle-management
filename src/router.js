@@ -15,6 +15,7 @@ import Carousels from './pages/UI/Carousel';
 import LoginForm from './pages/Form/Login';
 import RegisterForm from './pages/Form/Register';
 import BasicTable from './pages/Table/basicTable';
+import HightTable from './pages/Table/highTable';
 
 export default class Router extends React.Component {
   render() {
@@ -37,6 +38,7 @@ export default class Router extends React.Component {
                   <Route path="/admin/form/login" component={LoginForm}></Route>
                   <Route path="/admin/form/register" component={RegisterForm}></Route>
                   <Route path="/admin/table/basic" component={BasicTable}></Route>
+                  <Route path="/admin/table/high" component={HightTable}></Route>
                   <Route component={NoMatch}></Route>
                 </Switch>
               </Admin>
