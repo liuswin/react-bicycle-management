@@ -85,6 +85,9 @@ export default class BasicTable extends React.Component {
                 <Card title="基础表格">
                     <Table bordered columns={columns} dataSource={this.state.dataSource} />
                 </Card>
+                <Card title="动态数据渲染表格" style={{margin: '10px 0'}}>
+                    <Table bordered columns={columns} dataSource={this.state.dynamicSource} />
+                </Card>
             </div>
         );
     }
